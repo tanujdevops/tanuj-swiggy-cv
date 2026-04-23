@@ -47,7 +47,7 @@ const Hero = () => {
             Tanuj Sharma
           </motion.p>
           <motion.h1
-            className="text-balance text-[5vw] font-extrabold leading-[1.03] text-text-1 md:text-[8vw]"
+            className="text-balance text-[5vw] font-extrabold leading-[1.03] text-white md:text-[8vw]"
             initial={{ y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
@@ -55,7 +55,7 @@ const Hero = () => {
             Hello Swiggy! Here&apos;s why you should hire me.
           </motion.h1>
           <motion.p
-            className="mx-auto mt-[2vw] max-w-[54vw] text-[1.7vw] font-medium leading-[1.45] text-text-1 md:max-w-[88vw] md:text-[3.4vw]"
+            className="mx-auto mt-[2vw] max-w-[54vw] text-[1.7vw] font-medium leading-[1.45] text-white md:max-w-[88vw] md:text-[3.4vw]"
             initial={{ y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.38, ease: [0.22, 1, 0.36, 1] }}
@@ -73,7 +73,7 @@ const Hero = () => {
             I don&apos;t just apply. I execute.
           </motion.p>
           <motion.div
-            className="mt-[2.5vw] flex flex-col items-center gap-[0.65vw] text-[1.15vw] font-medium text-text-1 md:mt-[4vw] md:text-[2.6vw]"
+            className="mt-[2.5vw] flex flex-col items-center gap-[0.65vw] text-[1.15vw] font-medium text-white md:mt-[4vw] md:text-[2.6vw]"
             initial={{ y: 14 }}
             animate={{ opacity: 1, y: [0, -5, 0] }}
             transition={{
