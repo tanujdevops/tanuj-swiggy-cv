@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  &::selection {
+    @apply bg-bg-1 text-text-1;
+  }
+}
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  @apply text-text-1;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg-1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+[id] {
+  scroll-margin-top: 7vw;
+}
+
+@media (max-width: 600px) {
+  [id] {
+    scroll-margin-top: 14vw;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .align-center {
+    text-align: center;
+  }
+}
+
+@keyframes menu-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.7vw) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-140%) skewX(-20deg);
+  }
+  42%,
+  100% {
+    transform: translateX(160%) skewX(-20deg);
+  }
+}
+
+.menu-trigger {
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.menu-trigger:hover {
+  box-shadow: 0 0 0 0.14vw rgba(255, 255, 255, 0.28);
+  transform: translateY(-0.12vw);
+}
+
+.menu-panel {
+  animation: menu-reveal 180ms ease-out both;
+  transform-origin: top right;
+}
+
+.nav-link {
+  position: relative;
+  width: fit-content;
+}
+
+.nav-link::after {
+  background: currentColor;
+  bottom: -0.18vw;
+  content: '';
+  height: 0.08vw;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+  width: 100%;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.interactive-card {
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.interactive-card:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1vw 3vw rgba(255, 255, 255, 0.12);
+}
+
+.auto-sheen {
+  overflow: hidden;
+  position: relative;
+}
+
+.auto-sheen::after {
+  animation: sheen 4.8s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+  content: '';
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 45%;
+}
+
+//navigation
+.burger {
+  width: 2.2vw;
+  min-width: 2.2vw;
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    height: 0.2vw;
+    width: 40%;
+    margin: auto;
+    background-color: #ffffff;
+    position: relative;
+    transition: transform 0.3s;
+  }
+
+  &::after {
+    top: -0.3vw;
+  }
+
+  &::before {
+    top: 0.3vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .burger {
+    width: 4.5vw;
+    min-width: 4.5vw;
+  }
+}
+
+.burgerActive {
+  &::after {
+    transform: rotate(45deg);
+    top: -0.1vw;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+    top: 0px;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
