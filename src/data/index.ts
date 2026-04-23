@@ -189,7 +189,7 @@ export const TECH_STACK = [
   },
   {
     title: 'AI & Automation',
-    items: ['AI Tools', 'Voice Agents', 'Workflow Automation'],
+    items: ['VAPI', 'Retell', 'ElevenLabs', 'Make', 'n8n'],
   },
 ];
 
