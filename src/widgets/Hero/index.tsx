@@ -64,7 +64,7 @@ const Hero = () => {
           </motion.p>
           <motion.p
             ref={heading2}
-            className="mt-[1.5vw] text-[2.2vw] font-extrabold leading-[1.2] text-primary md:text-[4.4vw]"
+            className="mt-[1.5vw] text-[2.2vw] font-extrabold leading-[1.2] text-white md:text-[4.4vw]"
             style={{ opacity }}
             initial={{ y: 18 }}
             animate={{ y: 0 }}
