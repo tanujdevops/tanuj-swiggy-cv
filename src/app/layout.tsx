@@ -3,7 +3,7 @@
 import Lenis from 'lenis';
 
 import { Montserrat } from 'next/font/google';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -14,26 +14,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [dimension, setDimension] = useState<any>(null);
-
   useEffect(() => {
     const lenis = new Lenis();
+    let frameId = 0;
 
     const raf = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      frameId = requestAnimationFrame(raf);
     };
 
-    const resize = () => {
-      setDimension({ width: window.innerWidth, height: window.innerHeight });
+    frameId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      lenis.destroy();
     };
-
-    window.addEventListener('resize', resize);
-    requestAnimationFrame(raf);
-    resize();
-
-    requestAnimationFrame(raf);
   }, []);
+
   return (
     <html lang="en">
       <body className={montserrat.className}>

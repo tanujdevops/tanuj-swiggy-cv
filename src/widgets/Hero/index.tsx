@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import useFloatingImages from '@/composables/useFloatingImages';
 
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { main_1, main_2, main_3 } from './images/index';
 import { LINKEDIN_URL } from '@/data';
@@ -16,16 +16,6 @@ const Hero = () => {
 
   const { manageMouseMove } = useFloatingImages(ref1, ref2, ref3);
 
-  const heading1 = useRef(null);
-  const heading2 = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: heading1,
-    offset: ['start 0.35', 'end 0.1'],
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
   return (
     <section id="main" className="relative bg-bg-1">
       <div
@@ -33,11 +23,7 @@ const Hero = () => {
         className="relative left-0 top-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-bg-1 md:h-[80vh]"
       >
         <div className="pointer-events-none absolute inset-0 z-[15] bg-bg-1" />
-        <motion.div
-          ref={heading1}
-          className="relative z-20 mx-auto mt-[-3vw] max-w-[78vw] px-[4vw] text-center md:max-w-[94vw]"
-          style={{ opacity }}
-        >
+        <motion.div className="relative z-20 mx-auto mt-[-3vw] max-w-[78vw] px-[4vw] text-center md:max-w-[94vw]">
           <motion.p
             className="mb-[1vw] text-[1.25vw] font-semibold uppercase tracking-[0.24em] text-primary md:text-[2.6vw]"
             initial={{ y: 18 }}
@@ -63,7 +49,6 @@ const Hero = () => {
             I built and shipped this application within hours of learning about this opportunity.
           </motion.p>
           <motion.p
-            ref={heading2}
             className="mt-[1.5vw] text-[2.2vw] font-extrabold leading-[1.2] text-white md:text-[4.4vw]"
             initial={{ y: 18 }}
             animate={{ opacity: 1, y: 0 }}
