@@ -7,7 +7,6 @@ import Services from '@/widgets/Services';
 import Credentials from '@/widgets/Credentials';
 import Approach from '@/widgets/Approach';
 import CallToAction from '@/widgets/CallToAction';
-import ShadowCursor from '@/components/ui/ShadowCursor';
 
 export default function Home() {
   return (
@@ -19,9 +18,6 @@ export default function Home() {
       <Credentials />
       <Approach />
       <CallToAction />
-
-      {/* disable cursor here */}
-      <ShadowCursor />
     </>
   );
 }
